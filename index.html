@@ -18,7 +18,7 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Work Day Scheduler</title>
   </head>
 
@@ -29,10 +29,56 @@
       <p id="currentDay" class="lead"></p>
     </header>
     <div class="container">
-      <!-- Timeblocks go here -->
+      <table id="planner-table">
+        <tr>
+          <td>9am</td>
+          <td><textarea name="9" id="nineBlock"></textarea></td>
+          <td><button id="save" class="saveBtn">X</button></td>
+        </tr>
+        <tr>
+          <td>10am</td>
+          <td><textarea name="10" id="tenBlock"></textarea></td>
+          <td><button id="save" class="saveBtn">X</button></td>
+        </tr>
+        <tr>
+          <td>11am</td>
+          <td><textarea name="11" id="elevenBlock"></textarea></td>
+          <td><button id="save" class="saveBtn">X</button></td>
+        </tr>
+        <tr>
+          <td>12pm</td>
+          <td><textarea name="12" id="twelveBlock"></textarea></td>
+          <td><button id="save" class="saveBtn">X</button></td>
+        </tr>
+        <tr>
+          <td>1pm</td>
+          <td><textarea name="13" id="thirteenBlock"></textarea></td>
+          <td><button id="save" class="saveBtn">X</button></td>
+        </tr>
+        <tr>
+          <td>2pm</td>
+          <td><textarea name="14" id="fourteenBlock"></textarea></td>
+          <td><button id="save" class="saveBtn">X</button></td>
+        </tr>
+        <tr>
+          <td>3pm</td>
+          <td><textarea name="15" id="fifteenBlock"></textarea></td>
+          <td><button id="save" class="saveBtn">X</button></td>
+        </tr>
+        <tr>
+          <td>4pm</td>
+          <td><textarea name="16" id="sixteenBlock"></textarea></td>
+          <td><button id="save" class="saveBtn">X</button></td>
+        </tr>
+        <tr>
+          <td>5pm</td>
+          <td><textarea name="17" id="seventeenBlock"></textarea></td>
+          <td><button id="save" class="saveBtn">X</button></td>
+        </tr>
+      </table>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>
