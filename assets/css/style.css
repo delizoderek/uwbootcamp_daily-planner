@@ -4,6 +4,7 @@ body {
   line-height: 1;
 }
 
+/* Handles the styling for the save button */
 button{
   display: block;
   height: 100%;
@@ -19,12 +20,14 @@ textarea {
   padding: 10px;
 }
 
+/* Sets column width for the first table element */
 td:first-child{
   text-align: right;
   border-top: 2px dashed black;
   width: 10%;
 }
 
+/* Sets column width for the last table element */
 td:last-child{
   width:10%;
 }
@@ -86,6 +89,7 @@ td:last-child{
   transition: all 0.3s ease-in-out;
 }
 
+/* Adds a bottom border to the last hour box */
 #last{
   border-bottom: 1px dashed #000000;
 }

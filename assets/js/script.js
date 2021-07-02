@@ -1,11 +1,13 @@
+// Variables for holding the code controlled html elements
 let currentDay = $("#currentDay");
 let tablePlanner = $("#planner-table");
 let allRows = $("textarea[name]");
 
+// Variables for tracking the current hour and text in the planner timeslots
 let currHour = 0;
 let timeslotText = Array(allRows.length).fill("");
 
-// Time interval that updates the day
+// Keeps track of the current day and current hour of the day. Calls renderTimeslotStyles to update the css class
 let dayCounter = setInterval(function(){
     let today = moment();
     currHour = today.hour();
@@ -13,6 +15,7 @@ let dayCounter = setInterval(function(){
     renderTimeslotStyles();
 },1000);
 
+// Sets the background of all text areas, then loads in the stored values if they exist
 function init(){
     // Set a default background
     allRows.addClass("form-control past");
@@ -26,10 +29,10 @@ function init(){
     }
 }
 
+// Sets the correct css class for the time slot depending on if it is in the past, present, or future
 function renderTimeslotStyles(){
     for(let area of allRows){
         let slotNumber = Number($(area).attr("name"));
-        //$(area).attr("class","");
         //if the name is less than the current hour set class to past
         if(slotNumber < currHour /*currHour*/){
             $(area).removeClass("present");
@@ -47,6 +50,7 @@ function renderTimeslotStyles(){
     }
 }
 
+// Listens for when the save button is clicked, then saves the text to local storage
 tablePlanner.on("click","#save",function(event){
     event.preventDefault();
     let saveBtn = event.target;
@@ -55,5 +59,6 @@ tablePlanner.on("click","#save",function(event){
     timeslotText[slotIndex] = textArea.val();
     localStorage.setItem("timeslot-text",JSON.stringify(timeslotText));
 });
+
 
 init();

@@ -1,1 +1,2 @@
-# uwbootcamp_daily-planner
+# Daily Planner
+For this assignment we were tasked with building an interactive planner using jQuery, javascript, and CSS. The site needed to support the ability to add events to hour timeslots and save those timeslots on reload.
