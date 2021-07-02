@@ -3,37 +3,45 @@ let tablePlanner = $("#planner-table");
 let allRows = $("textarea[name]");
 
 let currHour = 0;
-let timeslotText = Array(allRows.length);
+let timeslotText = Array(allRows.length).fill("");
 
 // Time interval that updates the day
 let dayCounter = setInterval(function(){
     let today = moment();
     currHour = today.hour();
-    currentDay.text(today.format("[Today is] dddd, MMMM Do, YYYY hh:mm:ss a"));
+    currentDay.text(today.format("[Today is] dddd, MMMM Do, YYYY hh:mm:ss A"));
     renderTimeslotStyles();
 },1000);
 
 function init(){
     // Set a default background
-    allRows.addClass("past");
-
+    allRows.addClass("form-control past");
     let tempArr = JSON.parse(localStorage.getItem("timeslot-text"));
     if(tempArr !== null){
         timeslotText = tempArr;
-        // TODO: If there is local storage set the textarea text
+        for(let slotEl of allRows){
+            let index = Math.floor(Number($(slotEl).attr("name")));
+            $(slotEl).text(timeslotText[index - 9]);
+        }
     }
 }
 
 function renderTimeslotStyles(){
     for(let area of allRows){
         let slotNumber = Number($(area).attr("name"));
-        $(area).attr("class","");
+        //$(area).attr("class","");
         //if the name is less than the current hour set class to past
-        if(slotNumber < currHour){
+        if(slotNumber < currHour /*currHour*/){
+            $(area).removeClass("present");
+            $(area).removeClass("future");
             $(area).addClass("past");
-        } else if (slotNumber == currHour){
+        } else if (slotNumber == currHour/*currHour*/){
+            $(area).removeClass("future");
+            $(area).removeClass("past");
             $(area).addClass("present");
         } else {
+            $(area).removeClass("past");
+            $(area).removeClass("present");
             $(area).addClass("future");
         }
     }
@@ -49,9 +57,3 @@ tablePlanner.on("click","#save",function(event){
 });
 
 init();
-// TODO: Color coding time slots based on current time
-    // TODO: Get current hour
-    // TODO: Loop through the textarea table rows and compare the hour timeslot with the current hour
-// TODO: Click event for when the time slot is saved
-// TODO: Saving the current planner to local storage
-// TODO: Loading planner from local storage
