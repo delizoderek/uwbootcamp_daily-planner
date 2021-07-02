@@ -34,11 +34,11 @@ function renderTimeslotStyles(){
     for(let area of allRows){
         let slotNumber = Number($(area).attr("name"));
         //if the name is less than the current hour set class to past
-        if(slotNumber < currHour /*currHour*/){
+        if(slotNumber < currHour){
             $(area).removeClass("present");
             $(area).removeClass("future");
             $(area).addClass("past");
-        } else if (slotNumber == currHour/*currHour*/){
+        } else if (slotNumber == currHour){
             $(area).removeClass("future");
             $(area).removeClass("past");
             $(area).addClass("present");
